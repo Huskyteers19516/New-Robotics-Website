@@ -1,0 +1,13 @@
+---
+import { cn } from "../lib/utils";
+---
+
+<a
+    {...Astro.props}
+    class={cn(
+        "text-muted-foreground hover:text-foreground transition-colors",
+        Astro.props.class,
+    )}
+>
+    <slot />
+</a>

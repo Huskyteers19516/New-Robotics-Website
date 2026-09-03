@@ -1,11 +1,86 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import { BackgroundBeams } from "../components/background-beams";
+import SeasonPage from "../components/season-page";
+import TextReveal from "../components/text-reveal";
+import { Timeline } from "../components/timeline";
+import TimelineEntry from "../components/timeline-entry";
+import Layout from "../layouts/Layout.astro";
+import Season2024Image from "../assets/images/2023-2024/team.png";
+import Season2025Image from "../assets/images/2024-2025/robot.webp";
+import Season2023Video from "../assets/images/2022-2023/robot.mp4";
 ---
 
 <Layout>
-	<Welcome />
+    <main>
+        <div
+            class="h-160 w-full rounded-md flex md:items-center md:justify-center bg-background/[0.96] antialiased bg-grid-white/[0.02] relative overflow-hidden"
+        >
+            <div
+                class="p-4 max-w-7xl mx-auto relative z-10 w-full pt-20 md:pt-0 lg:text-[20rem] italic md:text-[16rem] sm:text-[10rem] font-bold text-center"
+            >
+                <TextReveal text="19516" client:load />
+                <p
+                    class="mt-4 font-normal text-base text-foreground max-w-lg text-center mx-auto not-italic"
+                >
+                    Hi, we&apos;re 19516 Huskyteers, a First Tech Challenge
+                    (FTC) robotics team based in Anaheim, California.
+                </p>
+            </div>
+            <BackgroundBeams client:load />
+        </div>
+        <Timeline client:load>
+            <TimelineEntry season="2025-2026" title="FTC Decode">
+                <SeasonPage
+                    href="/seasons/2025-2026"
+                    awards={[
+                        "Design Award - 1st Place at Wildcard",
+                        "Advanced to Wildcard",
+                        "Reach Award - 2nd Place at ILT",
+                    ]}
+                    image={Season2024Image.src}
+                />
+            </TimelineEntry>
+            <TimelineEntry season="2024-2025" title="FTC Into the Deep">
+                <SeasonPage
+                    href="/seasons/2024-2025"
+                    image={Season2025Image.src}
+                    awards={[
+                        "Advanced to Wildcard",
+                        "Connect Award - 1st Place",
+                    ]}
+                />
+            </TimelineEntry>
+            <TimelineEntry season="2023-2024" title="FTC Centerstage">
+                <SeasonPage
+                    href="/seasons/2023-2024"
+                    image={Season2024Image.src}
+                    awards={[
+                        "Think Award - 3rd Place",
+                        "Control Award - 2nd Place",
+                        "Motivate Award - 1st Place",
+                        "Promote Award - 3rd Place",
+                    ]}
+                />
+            </TimelineEntry>
+            <TimelineEntry season="2022-2023" title="FTC Power Play">
+                <SeasonPage
+                    href="/seasons/2022-2023"
+                    awards={[
+                        "Promote Award - 1st Place",
+                        "Compass Award - 3rd Place",
+                    ]}
+                    video="/images/2022-2023/robot.mp4"
+                />
+            </TimelineEntry>
+            <TimelineEntry season="2021-2022" title="FTC Freight Frenzy">
+                <SeasonPage
+                    href="/seasons/2021-2022"
+                    awards={[
+                        "Innovation Award - 1st Place",
+                        "O1 Division Finalist Alliance",
+                    ]}
+                />
+            </TimelineEntry>
+        </Timeline>
+    </main>
 </Layout>

@@ -1,23 +1,39 @@
+---
+import Footer from "../components/Footer.astro";
+import Header from "../components/header/Header.astro";
+import "../styles/global.css";
+import Font from "astro/components/Font.astro";
+---
+
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="generator" content={Astro.generator} />
+        <title>The Huskyteers | FTC 19516</title>
+        <meta name="title" content="The Huskyteers | FTC 19516" />
+        <meta
+            name="description"
+            content="The Huskyteers are a FIRST Tech Challenge team based in the Anaheim, California."
+        />
+        <Font cssVariable="--font-jockey-one-astro" />
+        <Font cssVariable="--font-inter-astro" />
+    </head>
+    <body class="font-inter">
+        <Header />
+        <slot />
+        <Footer />
+    </body>
 </html>
 
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+    html,
+    body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+    }
 </style>
